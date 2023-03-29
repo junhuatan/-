@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.liu.org.mapper.FlightMapper">
+
+    <resultMap id="BaseResultMap" type="com.liu.org.pojo.Flight">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <id property="aid" column="aid" jdbcType="INTEGER"/>
+            <id property="destination" column="Destination" jdbcType="VARCHAR"/>
+            <result property="airline" column="Airline" jdbcType="VARCHAR"/>
+            <result property="dateOfJourney" column="Date_of_Journey" jdbcType="DATE"/>
+            <result property="flightInfoId" column="flight_info_id" jdbcType="VARCHAR"/>
+            <result property="source" column="Source" jdbcType="VARCHAR"/>
+            <result property="route" column="Route" jdbcType="VARCHAR"/>
+            <result property="depTime" column="Dep_Time" jdbcType="VARCHAR"/>
+            <result property="arrivalTime" column="Arrival_Time" jdbcType="VARCHAR"/>
+            <result property="duration" column="Duration" jdbcType="VARCHAR"/>
+            <result property="totalStops" column="Total_Stops" jdbcType="VARCHAR"/>
+            <result property="additionalInfo" column="Additional_Info" jdbcType="VARCHAR"/>
+            <result property="holidayDiscounts" column="holiday_discounts" jdbcType="FLOAT"/>
+            <result property="econmecyPrice" column="econmecy_price" jdbcType="FLOAT"/>
+            <result property="classPrice" column="class_price" jdbcType="INTEGER"/>
+            <result property="totalSeat" column="total_seat" jdbcType="INTEGER"/>
+            <result property="seatFVacant" column="seat_f_vacant" jdbcType="INTEGER"/>
+            <result property="seatYVacant" column="seat_y_vacant" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,aid,Destination,Airline,
+        Date_of_Journey,flight_info_id,
+        Source,Route,Dep_Time,
+        Arrival_Time,Duration,Total_Stops,
+        Additional_Info,holiday_discounts,econmecy_price,class_price,
+        total_seat,seat_f_vacant,seat_y_vacant
+    </sql>
+    <select id="selectSeatFVacantById" resultType="java.lang.Integer">
+        select seat_f_vacant from flight where id={#fid}
+    </select>
+    <select id="selectSeatYVacantById" resultType="java.lang.Integer">
+        select seat_y_vacant from flight where id={#fid}
+    </select>
+</mapper>

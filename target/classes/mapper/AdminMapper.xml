@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.liu.org.mapper.AdminMapper">
+
+    <resultMap id="BaseResultMap" type="com.liu.org.pojo.Admin">
+            <id property="aId" column="a_id" jdbcType="INTEGER"/>
+            <result property="password" column="password" jdbcType="VARCHAR"/>
+            <result property="adminNane" column="admin_nane" jdbcType="VARCHAR"/>
+            <result property="aPhone" column="a_phone" jdbcType="VARCHAR"/>
+            <result property="uId" column="u_id" jdbcType="INTEGER"/>
+            <result property="modificationTime" column="modification_time" jdbcType="DATE"/>
+            <result property="modificationId" column="modification_id" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        a_id,password,admin_nane,
+        a_phone,u_id,modification_time,
+        modification_id
+    </sql>
+
+
+
+</mapper>
